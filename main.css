@@ -1,0 +1,33 @@
+h3{
+    font-family:arial,sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.stopwatch{
+    text-align: center;
+    margin:0 auto;
+    max-width:500px;
+    
+}
+
+#time{
+    font-size: 70px;
+    margin:60px 0;
+    
+}
+button{
+    display: inline-block;
+    font-size: 20px;
+    padding: .8rem 1.6rem;
+    
+}
+button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+button:disabled {
+    cursor: default;
+    background-color: gray;
+    
+}
