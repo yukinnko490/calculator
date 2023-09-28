@@ -1,33 +1,62 @@
-h3{
-    font-family:arial,sans-serif;
-    font-size: 30px;
-    text-align: center;
-}
-
-.stopwatch{
-    text-align: center;
+.calculator{
+    max-width:400px;
     margin:0 auto;
-    max-width:500px;
     
 }
 
-#time{
-    font-size: 70px;
-    margin:60px 0;
-    
+#header {
+    text-align: center;
+    font-size: 30px;
+    box-sizing: border-box;
+    padding: 18px;
+}
+#calc{
+    text-align: center;
+    box-sizing: border-box;
+}
+
+div{
+    display: block;
+    padding:2px;
+}
+input{
+    box-sizing: border-box;
+    height: 60px;
+    font-size: 30px;
+    text-align: right;
+    padding: 0 10px;
 }
 button{
-    display: inline-block;
-    font-size: 20px;
-    padding: .8rem 1.6rem;
-    
+  font-size: 20px;
+  width:80px;
+  height: 60px;
+  color: black;
+  vertical-align: middle;
+  border-color: black;
+  border-radius: 16px;
 }
+
 button:hover{
-    cursor: pointer;
-    opacity: 0.8;
+  background-color: #ddd;
 }
-button:disabled {
-    cursor: default;
-    background-color: gray;
-    
+
+#last{
+    width:165px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,32 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--意味を調べる-->
-　　 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-　　  <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+   <title>電卓</title>
    
-    <link rel="stylesheet" href="main.css">
-    <title>ストップウォッチ</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="main.css">
+  
   </head>
   
   
-
   <body>
-      <h3>ストップウォッチ</h3>
-      <div class="stopwatch">
-       <div id="time">00:00</div>
-       
-       <button id="start" onclick="start()">スタート</button>
-       <button id="stop" onclick="stop()" disabled>ストップ</button>
-       <button id="reset" onclick="reset()" disabled>リセット</button>
-       
-      </div>
+   <div class="calculator">
+    
+    <h1 id="header">電卓</h1>
+    
       
+    <div id="calc">
+     <div>
+     <input type="text" readonly id="result" value="0" >
+     </div>
+     
+      <div>
+      <button onclick="num_click(this.innerHTML)">7</button>
+      <button onclick="num_click(this.innerHTML)">8</button>
+      <button onclick="num_click(this.innerHTML)">9</button>
+      <button onclick="ope_click(this.innerHTML)">÷</button>
+      </div>
+      <div>
+      <button onclick="num_click(this.innerHTML)">4</button>
+      <button onclick="num_click(this.innerHTML)">5</button>
+      <button onclick="num_click(this.innerHTML)">6</button>
+      <button onclick="ope_click(this.innerHTML)">×</button>
+      </div>
+      <div>
+       <button onclick="num_click(this.innerHTML)">1</button>
+       <button onclick="num_click(this.innerHTML)">2</button>
+       <button onclick="num_click(this.innerHTML)">3</button>
+       <button onclick="ope_click(this.innerHTML)">-️</button>
+      </div>
+      <div>
+       <button onclick="num_click(this.innerHTML)">0</button>
+       <button onclick="num_click(this.innerHTML)">00</button>
+       <button onclick="num_click(this.innerHTML)">.</button>
+       <button onclick="ope_click(this.innerHTML)">+</button>
+      </div>
+      <div>
+       <button id="last" onclick="c_click()">AC</button>
+       <button id="last" onclick="equal_click()">=</button>
+      </div>
+    </div>  
+       
+   </div>   
       
       
       
       
      <script src="main.js"></script> 
   </body>
+  
+  
 </html>

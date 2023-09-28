@@ -1,57 +1,84 @@
-let startButton;
-let stopButton;
-let resetButton;
-let showTime;
 
-let timer;
-let startTime;   　
-let elapsedTime = 0;　　　//経過時間
-let holdTime = 0;　　　//一時停止用に時間保持
+let result = "";
+let is_calc = false;
 
+
+//初期表示
 window.onload = function () {
-    startButton = document.getElementById("start");
-    stopButton = document.getElementById("stop");
-    resetButton = document.getElementById("reset");
-    showTime = document.getElementById("time");
+  result = document.getElementById('result');
+};
+
+//ACキー
+function c_click(){
+  result.value = "0";
+  is_calc = false;
 }
-function start(){  //スタートボタン押す時
-    startTime = Date.now();
-    measureTime();  //時間計測
-    startButton.disabled = true;
-    stopButton.disabled = false;
-    resetButton.disabled = false;
+
+
+function num_click(val){
+  if(is_calc)  result.value = "0";
+  is_calc = false;  
+
+  if(result.value =="0" && val == "0"){
+    result.value = "0";
+  }else if(result.value == "0" && val == "."){
+    result.value = "0.";
+  }else if(result.value == "0" && val == "00"){
+    result.value = "0";
+  }else if(result.value == "0"){
+    result.value = val;
+  }else{
+    result.value += val;
+  }
+}
+
+
+
+
+function ope_click(val){
+  if(is_calc)  is_calc = false;
+  
+  if(is_ope_last()){
+    result.value = result.value.slice(0, -1) + val;
+  } else {
+    result.value += val;
+  }
+}
+
+
     
-}
-function stop(){    //ストップボタン押す時
-    clearInterval(timer);// タイマー停止
-    holdTime += Date.now() - startTime;　//停止時間保持
-    startButton.disabled = false;
-    stopButton.disabled = true;
-    resetButton.disabled = false;
+
+
+function equal_click(){
+  if(is_ope_last())  result.value = result.value.slice(0, -1);
+
+  var temp = new Function("return " + result.value.replaceAll("×", "*").replaceAll("÷", "/"))();
+  if(temp == Infinity || Number.isNaN(temp)){
+    result.value = "Error";
+  }else{
+    result.value = temp;
+    is_calc = true;
+  }
 }
 
-function reset(){     //リセットボタン押す時
-    clearInterval(timer);
-    //表示を初期化
-    elapsedTime = 0;
-    holdTime = 0;
-    showTime.textContent = "00:00";
-    startButton.disabled = false;
-    stopButton.disabled = true;
-    resetButton.disabled = true;
-    
-}
-　　//再び計測開始
-function measureTime() {
-
-    timer = setTimeout(function () {　
-        //現在時刻-開始時間-保持時間で求める
-    elapsedTime = Date.now() - startTime + holdTime;
-    showTime.textContent = new Date(elapsedTime).toISOString().slice(14, 19);
-    measureTime();
-    }, 10);　　　
+function dot_click(val) {
+  if(is_calc) is_calc = false;
+  
+  if(is_dot_last()) {
+    result.value = result.value.slice(0,-1) + val;
+  }
+  else {
+    result.value += val;
+  }
 }
 
+function is_ope_last(){
+  return ["+","-","×","÷"].includes(result.value.toString().slice(-1));
+}
+
+function is_dot_last() {
+  return ["."].includes(result.value.toString().slice(-1));
+}
 
 
 
