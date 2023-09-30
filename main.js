@@ -1,14 +1,13 @@
-
 let result = "";
+
 let is_calc = false;
 
 
-//初期表示
+
 window.onload = function () {
   result = document.getElementById('result');
 };
 
-//ACキー
 function c_click(){
   result.value = "0";
   is_calc = false;
@@ -73,7 +72,7 @@ function dot_click(val) {
 }
 
 function is_ope_last(){
-  return ["+","-","×","÷"].includes(result.value.toString().slice(-1));
+  return ["+","-","*","/"].includes(result.value.toString().slice(-1));
 }
 
 function is_dot_last() {
